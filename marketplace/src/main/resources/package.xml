@@ -1,0 +1,28 @@
+<package type="addon" name="nuxeo-birt-integration" version="@VERSION@">
+  <title>Nuxeo - BIRT Integration (Reporting)</title>
+  <description>
+    The Nuxeo - BIRT Integration offers integrated reporting
+    capabilities on top of Nuxeo content management applications, enabling the
+    design, rendering, and access of reports and analytics, through Eclipse
+    BIRT. The BIRT Engine has been integrated in the Nuxeo platform, so that
+    reporting capabilities are available without leaving the Nuxeo application,
+    and security controls can be managed in one place.
+  </description>
+  <vendor>Nuxeo</vendor>
+  <installer restart="true" />
+  <uninstaller restart="true" />
+  <!-- <hotreload-support>true</hotreload-support> -->
+  <!-- <require-terms-and-conditions-acceptance>false -->
+  <!-- </require-terms-and-conditions-acceptance> -->
+  <nuxeo-validation>nuxeo_certified</nuxeo-validation>
+  <production-state>production_ready</production-state>
+  <supported>true</supported>
+  <platforms>
+    <platform>cap-@DISTRIB_VERSION@</platform>
+  </platforms>
+  <dependencies>
+    <package>nuxeo-dm:@DISTRIB_VERSION@</package>
+  </dependencies>
+  <license>LGPL</license>
+  <license-url>http://www.gnu.org/licenses/lgpl.html</license-url>
+</package>
