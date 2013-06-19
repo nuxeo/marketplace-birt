@@ -8,6 +8,7 @@
     reporting capabilities are available without leaving the Nuxeo application,
     and security controls can be managed in one place.
   </description>
+  <home-page>http://doc.nuxeo.com/x/tYPZ</home-page>
   <vendor>Nuxeo</vendor>
   <installer restart="true" />
   <uninstaller restart="true" />
