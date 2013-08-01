@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.nuxeo.marketplace.birt</groupId>
@@ -13,46 +14,28 @@
 
   <dependencies>
     <!-- Base distribution(s) for the MP -->
-    <!-- <dependency>
-      <groupId>org.nuxeo.ecm.distribution</groupId>
-      <artifactId>nuxeo-distribution-cap</artifactId>
-      <type>pom</type>
-    </dependency> -->
-    <!-- <dependency> -->
-    <!-- <groupId>org.nuxeo.ecm.distribution</groupId> -->
-    <!-- <artifactId>nuxeo-distribution-coreserver</artifactId> -->
-    <!-- <type>pom</type> -->
-    <!-- </dependency> -->
     <dependency>
       <groupId>org.nuxeo.ecm.distribution</groupId>
       <artifactId>nuxeo-distribution-dm</artifactId>
       <type>pom</type>
+      <exclusions>
+        <!-- NXP-12166: conflict dependencies -->
+        <exclusion>
+          <groupId>org.nuxeo.connect</groupId>
+          <artifactId>nuxeo-connect-client</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
-    <!-- <dependency> -->
-    <!-- <groupId>org.nuxeo.ecm.distribution</groupId> -->
-    <!-- <artifactId>nuxeo-distribution-dam</artifactId> -->
-    <!-- <type>pom</type> -->
-    <!-- </dependency> -->
-    <!-- <dependency> -->
-    <!-- <groupId>org.nuxeo.ecm.distribution</groupId> -->
-    <!-- <artifactId>nuxeo-distribution-cmf</artifactId> -->
-    <!-- <type>pom</type> -->
-    <!-- </dependency> -->
-    <!-- <dependency> -->
-    <!-- <groupId>org.nuxeo.ecm.distribution</groupId> -->
-    <!-- <artifactId>nuxeo-distribution-social-collaboration</artifactId> -->
-    <!-- <type>pom</type> -->
-    <!-- </dependency> -->
 
     <!-- Additional bundles to be deployed by the MP -->
     <dependency>
-        <groupId>org.nuxeo.ecm.platform</groupId>
-        <artifactId>nuxeo-birt-reporting</artifactId>
-      </dependency>
-      <dependency>
-        <groupId>org.nuxeo.ecm.platform</groupId>
-        <artifactId>nuxeo-birt-reporting-web</artifactId>
-      </dependency>
+      <groupId>org.nuxeo.ecm.platform</groupId>
+      <artifactId>nuxeo-birt-reporting</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.nuxeo.ecm.platform</groupId>
+      <artifactId>nuxeo-birt-reporting-web</artifactId>
+    </dependency>
   </dependencies>
 
   <build>

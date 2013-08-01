@@ -2,6 +2,7 @@
 <install>
   <update file="${package.root}/install/bundles" todir="${env.bundles}" />
   <update file="${package.root}/install/lib" todir="${env.lib}" />
+@EXCLUDES@
   <copy file="${package.root}/install/artifacts-birt.properties" todir="${env.server.home}/sdk"
     overwrite="true" />
   <copy file="${package.root}/install/test-artifacts-birt.properties"
