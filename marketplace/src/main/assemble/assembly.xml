@@ -88,6 +88,27 @@
       <patternset refid="birt.versus.dm" />
     </unzip>
 
+    <var name="install.bundles" value="" />
+    <if>
+      <available file="${outdir}/marketplace/install/bundles" />
+      <then>
+        <var name="install.bundles"
+             value="${line.separator}
+  &lt;update file=&quot;${package.root}/install/bundles&quot; todir=&quot;${env.bundles}&quot; /&gt;" />
+      </then>
+    </if>
+
+    <var name="install.libs" value="" />
+    <if>
+      <available file="${outdir}/marketplace/install/lib" />
+      <then>
+
+        <var name="install.libs"
+             value="${line.separator}
+  &lt;update file=&quot;${package.root}/install/lib&quot; todir=&quot;${env.lib}&quot; /&gt;" />
+      </then>
+    </if>
+
     <!-- NXP-12166: filter out conflicting JARs -->
     <var name="install.excludes" value="" />
     <loadfile property="jars" srcfile="${outdir}/excludesfile" />
@@ -103,14 +124,36 @@
         </if>
       </sequential>
     </for>
+
+    <var name="install.properties"
+          value="${line.separator}
+  &lt;copy file=&quot;${package.root}/install/artifacts-birt.properties&quot;${line.separator}
+    todir=&quot;${env.server.home}/sdk&quot; overwrite=&quot;true&quot; /&gt;${line.separator}
+  &lt;copy file=&quot;${package.root}/install/test-artifacts-birt.properties&quot;${line.separator}
+    todir=&quot;${env.server.home}/sdk&quot; overwrite=&quot;true&quot; /&gt;" />
+
+    <var name="install.templates" value="" />
+    <if>
+      <available file="${outdir}/marketplace/install/templates" />
+      <then>
+        <var name="install.templates"
+             value="${line.separator}
+  &lt;copy dir=&quot;${package.root}/install/templates&quot; todir=&quot;${env.templates}&quot; overwrite=&quot;true&quot; /&gt;${line.separator}
+  &lt;config addtemplate=&quot;poll&quot; /&gt;${line.separator}" />
+      </then>
+    </if>
+
     <copy file="src/main/resources/install.xml"
           todir="${outdir}/marketplace"
           overwrite="true">
       <filterset>
+        <filter token="BUNDLES" value="${install.bundles}" />
+        <filter token="LIBS" value="${install.libs}" />
         <filter token="EXCLUDES" value="${install.excludes}" />
+        <filter token="PROPERTIES" value="${install.properties}" />
+        <filter token="TEMPLATES" value="${install.templates}" />
       </filterset>
     </copy>
-
 
     <zip destfile="${outdir}/${maven.project.artifactId}-${marketplace.birt.version}.zip"
          basedir="${outdir}/marketplace" />
