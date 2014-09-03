@@ -7,11 +7,6 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
 
-  <properties>
-    <!-- nuxeo-connect-client upgrade required by NXP-13745 and NXP-13750 (5.8.0-HF08) -->
-    <nuxeo.connect.client.version>1.4.14</nuxeo.connect.client.version>
-  </properties>
-
   <artifactId>marketplace-birt</artifactId>
   <packaging>zip</packaging>
   <name>Marketplace package</name>
