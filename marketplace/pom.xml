@@ -26,6 +26,12 @@
         </exclusion>
       </exclusions>
     </dependency>
+    <dependency>
+      <groupId>org.nuxeo.ecm.distribution</groupId>
+      <artifactId>nuxeo-distribution-cap</artifactId>
+      <type>zip</type>
+      <scope>provided</scope>
+    </dependency>
 
     <!-- Additional bundles to be deployed by the MP -->
     <dependency>

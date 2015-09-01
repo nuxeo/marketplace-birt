@@ -35,6 +35,19 @@
       <artifactId>nuxeo-functional-tests</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.nuxeo.marketplace.birt</groupId>
+      <artifactId>marketplace-birt</artifactId>
+      <type>zip</type>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.nuxeo.ecm.distribution</groupId>
+      <artifactId>nuxeo-distribution-tomcat</artifactId>
+      <classifier>nuxeo-cap</classifier>
+      <type>zip</type>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
